@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { FormControl, TextField, Button, Paper } from "@material-ui/core";
 import { withRouter } from "react-router";
+import SimpleMDE from "react-simplemde-editor";
+import "easymde/dist/easymde.min.css"
 
 const styles = {
   form: {
@@ -71,18 +73,7 @@ class UpsertNote extends Component {
             />
           </FormControl>
         </Paper>
-        <Paper elevation={3} style={styles.paper}>
-          <FormControl fullWidth>
-            <TextField
-              label="Text"
-              multiline
-              rows={6}
-              variant="outlined"
-              value={this.state.text}
-              onChange={this.updateText}
-            />
-          </FormControl>
-        </Paper>
+        <SimpleMDE value={this.state.text} onChange={this.updateText} />
         <div>
           <Button type="button" color="secondary" onClick={this.handleCancel}>
             Cancel
